@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
+import {connect} from 'react-redux';
  
 class Comments extends Component {
+    handleChange= (event) => {
+        console.log(event.target.value)
+        this.props.dispatch({ type: 'COMMENT_LIST', payload: event.target.value});
+        }
+
     handleClick = () => {
         this.props.history.push('/')
         }
-
 
     render() {
         return (
@@ -13,35 +19,16 @@ class Comments extends Component {
              <h1>Any comments you want to leave?</h1>
              <span>Comments
                  <div>
-                 <input type="type"/>
+                 <input type="type" onChange={this.handleChange}/>
                  <button onClick={this.handleClick}>NEXT</button>
                  </div>
              </span>
+             <ReviewFeedback />
          </div>
-         <div>
-         <h2>Review Your Feeling</h2>
-         <form>
-             <div>
-             Feelings: 
-             <input type="number"/>
-             </div>
-             <div>
-             Understanding:
-             <input type="number"/>
-             </div>
-             <div>
-             Support: 
-             <input type="number"/>
-             </div>
-             <div>
-             Comment:
-             <input type="type"/>
-             </div>
-         </form>
-          </div>
      </main>
         );
     }
 }
 
-export default Comments;
+
+export default connect() (Comments);

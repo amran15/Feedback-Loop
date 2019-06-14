@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
+import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
+import {connect} from 'react-redux';
  
 class Support extends Component {
+    handleChange= (event) => {
+        console.log(event.target.value)
+        this.props.dispatch({ type: 'SUPPORT_LIST', payload: event.target.value});
+        }
+
     handleClick = () => {
         this.props.history.push('/comments')
         }
+
     render() {
         return (
              <main>
@@ -11,34 +19,16 @@ class Support extends Component {
                     <h1>How well are you being supported?</h1>
                     <span>Support?
                         <div>
-                        <input type="number"/>
+                        <input type="number" min="1" max="5" onChange={this.handleChange} />
                         <button onClick={this.handleClick}>NEXT</button>
                         </div>
                     </span>
                 </div>
-                <div>
-                <h2>Review Your Feeling</h2>
-                <form>
-                    <div>
-                    Feelings: 
-                    <input type="number"/>
-                    </div>
-                    <div>
-                    Understanding:
-                    <input type="number"/>
-                    </div>
-                    <div>
-                    Support: 
-                    <input type="number"/>
-                    </div>
-                    <div>
-                    Comment:
-                    <input type="type"/>
-                    </div>
-                </form>
-                 </div>
+                <ReviewFeedback />
             </main>
         );
     }
 }
-export default Support;
+
+
+export default connect() (Support);
