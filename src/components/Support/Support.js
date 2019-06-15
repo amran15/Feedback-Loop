@@ -8,15 +8,18 @@ class Support extends Component {
     }
 
     handleChange= (event) => {
-        this.setState({
-            support: event.target.value
-        })
+        this.props.dispatch({ type: 'FEEDBACK_LIST', payload: {support: event.target.value}
+    })
         }
 
     handleClick = () => {
-        this.props.dispatch({ type: 'FEEDBACK_LIST', payload: this.state})
-        this.props.history.push('/comments')
+        if(this.props.feedback.feedbackReducer.support === "" ){
+            alert("Please fill out the field!")
+        } else{
+            this.props.history.push('/comments')
         }
+        }
+
 
     render() {
         return (
@@ -45,6 +48,9 @@ class Support extends Component {
         );
     }
 }
- 
 
-export default connect() (Support);
+const mapReduxStateToProps =(reduxState) =>({
+    feedback: reduxState
+})
+ 
+export default connect(mapReduxStateToProps) (Support);

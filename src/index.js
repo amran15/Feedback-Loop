@@ -7,7 +7,7 @@ import logger from 'redux-logger';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
-const feedbackReducer = (state = {}, action) => {
+const feedbackReducer = (state = {feeling: '', understanding: '', support: '', comments: '',}, action) => {
     if(action.type === 'FEEDBACK_LIST'){
         console.log(action.payload)
         return { ...state, ...action.payload};

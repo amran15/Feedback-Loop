@@ -8,19 +8,17 @@ class Feeling extends Component {
     }
 
     handleChange= (event) => {
-        this.setState({
-            feeling: event.target.value
+        this.props.dispatch({ type: 'FEEDBACK_LIST', payload: {feeling: event.target.value}
         })
         }
 
     handleClick = () => {
-        this.props.dispatch({ type: 'FEEDBACK_LIST', payload: this.state})
-        this.props.history.push('/understanding')
+        if (this.props.feedback.feedbackReducer.feeling === '' ){
+            alert("Please fill out the field!")
+        }else{
+            this.props.history.push('/understanding')
         }
-
-handleSubmit(event){
-    event.preventDefault();
-}
+    }
     render() {
         return (
             <main>
@@ -49,5 +47,8 @@ handleSubmit(event){
         );
     }
 }
+const mapReduxStateToProps =(reduxState) =>({
+    feedback: reduxState
+})
 
-export default connect() (Feeling);
+export default connect(mapReduxStateToProps) (Feeling);

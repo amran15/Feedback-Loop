@@ -8,15 +8,20 @@ class Understanding extends Component {
     }
 
     handleChange= (event) => {
-        this.setState({
-            understanding: event.target.value
-        })
-        }
+        this.props.dispatch({ type: 'FEEDBACK_LIST', payload: {understanding: event.target.value}
+    })
+    }
 
     handleClick = () => {
-        this.props.dispatch({ type: 'FEEDBACK_LIST', payload: this.state})
-        this.props.history.push('/support')
+        if (  this.props.feedback.feedbackReducer.understanding === "" ){
+            alert("Please fill out the field!")
         }
+        else {
+            this.props.history.push('/support')
+        }
+        }
+
+
     render() {
         return (
             <main>
@@ -46,5 +51,8 @@ class Understanding extends Component {
     }
 }
 
+const mapReduxStateToProps =(reduxState) =>({
+    feedback: reduxState
+})
 
-export default connect() (Understanding);
+export default connect(mapReduxStateToProps) (Understanding);

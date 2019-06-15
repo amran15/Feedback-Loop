@@ -8,14 +8,16 @@ class Comments extends Component {
     }
 
     handleChange= (event) => {
-        this.setState({
-            comments: event.target.value
-        })
-        }
+        this.props.dispatch({ type: 'FEEDBACK_LIST', payload:{comments: event.target.value} 
+    })
+    }
 
     handleClick = () => {
-        this.props.dispatch({ type: 'FEEDBACK_LIST', payload: this.state})
-        this.props.history.push('/review')
+        if(this.props.feedback.feedbackReducer.comments === ""){
+            alert("Please fill out the field!")
+        } else{
+            this.props.history.push('/review')
+        }
         }
 
     render() {
@@ -28,7 +30,7 @@ class Comments extends Component {
                  <textarea type="text"
                  rows="8"
                  cols="70"
-                 value={this.state.comments}
+                 value={this.props.feedback.feedbackReducer.comments}
                  onChange={this.handleChange}>
                  </textarea>
                  <br/>
@@ -42,5 +44,8 @@ class Comments extends Component {
     }
 }
 
+const mapReduxStateToProps =(reduxState) =>({
+    feedback: reduxState
+})
 
-export default connect() (Comments);
+export default connect(mapReduxStateToProps) (Comments);

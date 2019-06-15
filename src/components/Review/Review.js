@@ -5,13 +5,6 @@ import axios from 'axios';
 class Review extends Component {
 
     handleClick = () => {
-        if (this.props.feedback.feedbackReducer.feeling === "" ||
-        this.props.feedback.feedbackReducer.understanding === "" ||
-        this.props.feedback.feedbackReducer.support === "" ||
-        this.props.feedback.feedbackReducer.comments === ""
-        ) {
-            alert("please fill out all the files")
-        }else
         this.props.history.push('/thanks')
         axios({
             method: 'POST',
@@ -20,8 +13,8 @@ class Review extends Component {
         }).then((response) => {
             console.log(response)
         })
-         
     }
+    
     render() {
             return (
             <div>
