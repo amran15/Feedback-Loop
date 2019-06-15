@@ -8,6 +8,9 @@ import Feeling from '../Feeling/Feeling';
 import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
+import Review from '../Review/Review';
+import Thanks from '../Thanks/Thanks';
+
 
 
 class App extends Component {
@@ -20,6 +23,8 @@ class App extends Component {
       <Route path="/understanding" exact component={Understanding}/>
       <Route path="/support" exact component={Support}/>
       <Route path="/comments" exact component={Comments}/>
+      <Route path="/review" exact component={Review}/>
+      <Route path="/thanks" exact component={Thanks}/>
         <br/>
       </div>
       </Router>

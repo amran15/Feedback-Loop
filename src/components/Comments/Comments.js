@@ -3,27 +3,39 @@ import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
 import {connect} from 'react-redux';
  
 class Comments extends Component {
+    state = {
+        comments: '', 
+    }
+
     handleChange= (event) => {
-        console.log(event.target.value)
-        this.props.dispatch({ type: 'COMMENT_LIST', payload: event.target.value});
+        this.setState({
+            comments: event.target.value
+        })
         }
 
     handleClick = () => {
-        this.props.history.push('/')
+        this.props.dispatch({ type: 'FEEDBACK_LIST', payload: this.state})
+        this.props.history.push('/review')
         }
 
     render() {
         return (
          <main>
-         <div className="Feeling Feedback">
+         <div className="Feeling ">
              <h1>Any comments you want to leave?</h1>
              <span>Comments
                  <div>
-                 <input type="type" onChange={this.handleChange}/>
+                 <textarea type="text"
+                 rows="8"
+                 cols="70"
+                 value={this.state.comments}
+                 onChange={this.handleChange}>
+                 </textarea>
+                 <br/>
                  <button onClick={this.handleClick}>NEXT</button>
                  </div>
              </span>
-             <ReviewFeedback />
+             <ReviewFeedback/>
          </div>
      </main>
         );
