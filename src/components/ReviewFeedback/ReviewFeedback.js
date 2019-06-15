@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import './ReviewFeedback.css';
 
  
 class ReviewFeedback extends Component {
@@ -14,7 +15,7 @@ class ReviewFeedback extends Component {
 
     render() {
         return (
-        <div>
+        <div className="feedbackForm">
             <h2>Review Your Feedback</h2>
             <form>
                 <p>Feelings: {this.props.feedback.feedbackReducer.feeling}</p>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
 import {connect} from 'react-redux';
+import './Support.css';
  
 class Support extends Component {
     state = {
@@ -24,7 +25,7 @@ class Support extends Component {
     render() {
         return (
              <main>
-                <div className="Feeling Feedback">
+                <div className="Support">
                     <h1>How well are you being supported?</h1>
                     <span>Support?
                         <div>

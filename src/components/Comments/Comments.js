@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
 import {connect} from 'react-redux';
+import './Comments.css';
  
 class Comments extends Component {
     state = {
@@ -23,7 +24,7 @@ class Comments extends Component {
     render() {
         return (
          <main>
-         <div className="Feeling ">
+         <div className="Comments ">
              <h1>Any comments you want to leave?</h1>
              <span>Comments
                  <div>
@@ -37,8 +38,8 @@ class Comments extends Component {
                  <button onClick={this.handleClick}>NEXT</button>
                  </div>
              </span>
-             <ReviewFeedback/>
          </div>
+         <ReviewFeedback/>
      </main>
         );
     }
