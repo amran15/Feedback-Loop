@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import Button from '@material-ui/core/button';
 
- 
+
 class Thanks extends Component {
-    
-    handleClick = () => {
-        this.props.history.push('/')
+    handleClick = () => {this.props.history.push('/')
         }
-  
+        
     render() {
         return (
          <main>
@@ -16,7 +15,7 @@ class Thanks extends Component {
              <span>
                  <div>
                  <h2>Want to leave another feedback?</h2>
-                 <button onClick={this.handleClick}>NEXT</button>
+                 <Button variant="contained" color="primary" onClick={this.handleClick}>Leave New Feedback</Button>
                  </div>
              </span>
          </div>
