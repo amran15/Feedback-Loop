@@ -25,7 +25,10 @@ class Review extends Component {
                     <p>Understanding: {this.props.feedback.feedbackReducer.understanding}</p>
                     <p>Support: {this.props.feedback.feedbackReducer.support}</p>
                     <p>Comment:{this.props.feedback.feedbackReducer.comments}</p>
-                    <button onClick={this.handleClick}>Submit</button>
+                    <button 
+                    disabled = {!this.props.feedback.feedbackReducer} 
+                    onClick={this.handleClick}>
+                    Submit</button>
                 </form>
             </div>
              );

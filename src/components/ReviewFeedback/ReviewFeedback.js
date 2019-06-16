@@ -4,15 +4,7 @@ import './ReviewFeedback.css';
 
  
 class ReviewFeedback extends Component {
-        handleChange= (event) => {
-            console.log(event.target.value)
-            this.props.dispatch({ type: 'FEEDBACK_LIST', payload: event.target.value});
-            }
     
-        handleClick = () => {
-            this.props.history.push('/understanding')
-            }
-
     render() {
         return (
         <div className="feedbackForm">

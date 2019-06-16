@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+
  
 class Thanks extends Component {
     
@@ -10,7 +11,7 @@ class Thanks extends Component {
     render() {
         return (
          <main>
-         <div className="Feeling ">
+         <div className="Thanks">
              <h1>Thank you for your submission</h1>
              <span>
                  <div>
