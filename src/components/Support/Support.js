@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
+import Form from '../Form/Form';
 import {connect} from 'react-redux';
 import './Support.css';
  
@@ -44,7 +44,7 @@ class Support extends Component {
                         </div>
                     </span>
                 </div>
-                 <ReviewFeedback />
+                 <Form />
             </main>
         );
     }

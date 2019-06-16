@@ -12,6 +12,7 @@ const feedbackReducer = (state = {feeling: '', understanding: '', support: '', c
         console.log(action.payload)
         return { ...state, ...action.payload};
     }
+    
     return state
 }
 

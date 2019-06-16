@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import  ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
+import  Form from '../Form/Form';
 import {connect} from 'react-redux';
 import './Feeling.css';
  
@@ -42,7 +42,7 @@ class Feeling extends Component {
                         </div>
                     </span>
                 </div>
-                < ReviewFeedback />
+                < Form />
             </main>
      
         );
