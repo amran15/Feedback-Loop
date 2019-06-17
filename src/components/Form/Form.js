@@ -9,14 +9,14 @@ class Form extends Component {
         && this.props.feedback.feedbackReducer.understanding!== "" && this.props.feedback.feedbackReducer.feeling!== ""){
             return  <Button variant= "contained" color="primary" onClick = {this.handleClick}>Submit</Button>
         }else{
-            return <Button variant= "contained" color="secondary" disabled>Submit</Button>
+            return <Button variant= "contained" color="secondary" disabled>Incomplete</Button>
         }
     }
 
     render() {
         let isComplete = this.submitButtonOrIncomplete()
-
         let button = isComplete;
+
         return (
         <div className="Form">
             <h2>Review Your Feedback</h2>
@@ -26,7 +26,6 @@ class Form extends Component {
                 <p>Support: {this.props.feedback.feedbackReducer.support}</p>
                 <p>Comment:{this.props.feedback.feedbackReducer.comments}</p>
                 {button}
-
             </form>
         </div>
          );
