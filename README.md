@@ -2,14 +2,27 @@
 This is an application that lets you enter your feedback daily. It saves it and shows you a review of the feedback immediately.
 The feedback is not submitted if the form is not filled properly.
 
+## SETUP
 
+Install all dependencies for the project.
 
-### SETUP
-
-download this repo.
+```
 npm install
+```
+
+Start the server.
+
+```
 npm run server
+```
+
+Now that the server is running, start the react client side app.
+
+```
 npm run client
+```
+
+For full functionality, you will need to create a local database and tables using the provided `data.sql` file. 
 
 
 ### DESCRIPTION
